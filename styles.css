@@ -69,13 +69,65 @@ ul li:before {
 /* Style for nested lists inside ordered lists */
 ol.feature-list li ul {
     margin-left: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 ol.feature-list li ul li {
-    padding-left: 25px;
+    padding-left: 30px !important;
+    display: list-item !important;
+    list-style: none !important;
+    position: relative !important;
 }
 
-/* Let the general ul li:before rule handle bullets */
+/* Specific styling for nested lists in ordered lists */
+ol li ul {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 0;
+}
+
+/* Nested list styling - sub-items under regular list items */
+ul li ul,
+ol li ul {
+    margin-top: 8px;
+    margin-left: 10px;
+    padding-left: 20px;
+    display: block;
+}
+
+ul li ul li,
+ol li ul li {
+    padding-left: 30px;
+    margin-bottom: 8px;
+    font-size: 0.95em;
+    color: var(--text-primary);
+    display: list-item;
+    position: relative;
+}
+
+ul li ul li:before,
+ol li ul li:before,
+ol.feature-list li ul li:before {
+    content: "▸" !important;
+    color: var(--primary);
+    font-size: 1.2em;
+    font-weight: normal;
+    position: absolute;
+    left: 10px;
+}
+
+/* Third-level nesting */
+ul li ul li ul {
+    margin-left: 15px;
+}
+
+ul li ul li ul li:before {
+    content: "▪";
+    color: var(--text-secondary);
+    font-size: 0.9em;
+}
 
 /* Navigation */
 /* Old navigation styles - commented out for new sidebar layout */
@@ -715,6 +767,70 @@ h6 {
 .card .card:hover {
     transform: none;
     box-shadow: 0 2px 4px rgba(196, 40, 40, 0.05);
+}
+
+/* Exercise Card Styling */
+.exercise-card {
+    border: 2px solid var(--primary);
+    background: linear-gradient(135deg, rgba(196, 40, 40, 0.05) 0%, rgba(196, 40, 40, 0.02) 100%);
+}
+
+.exercise-notice {
+    background: rgba(196, 40, 40, 0.1);
+    border: 1px solid var(--primary);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.exercise-notice h4 {
+    color: var(--primary);
+    margin: 0 0 0.5rem 0;
+}
+
+.exercise-steps {
+    background: var(--bg-primary);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+}
+
+.exercise-steps h5 {
+    color: var(--primary);
+    margin-top: 1.5rem;
+}
+
+.exercise-steps h5:first-child {
+    margin-top: 0;
+}
+
+.submission-box {
+    background: rgba(59, 130, 246, 0.1);
+    border: 2px solid #3b82f6;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 1rem;
+}
+
+.submission-box h6 {
+    color: #3b82f6;
+    margin: 0 0 1rem 0;
+}
+
+.placeholder-box {
+    background: rgba(251, 191, 36, 0.1);
+    border: 1px dashed #fbbf24;
+    border-radius: 6px;
+    padding: 1rem;
+    margin: 1rem 0;
+    text-align: center;
+}
+
+.placeholder-note {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-top: 0.5rem;
 }
 
 /* Comparison Grid and Cards */
@@ -1363,7 +1479,7 @@ h6 {
 }
 
 /* Enhanced List Styles */
-.feature-list li {
+.feature-list > li {
     background: var(--bg-secondary);
     padding: 0.75rem;
     border-radius: 6px;
@@ -1372,14 +1488,34 @@ h6 {
     transition: all 0.3s ease;
 }
 
-.feature-list li:hover {
+.feature-list > li:hover {
     background: var(--bg-card);
     transform: translateX(2px);
     box-shadow: 0 1px 4px rgba(196, 40, 40, 0.1);
 }
 
-.feature-list li:before {
+/* Remove styling from nested list items */
+.feature-list li ul li {
+    background: none;
+    border-left: none;
+    border-radius: 0;
+    padding: 0.25rem 0 0.25rem 30px;
+}
+
+.feature-list li ul li:hover {
+    background: none;
+    transform: none;
+    box-shadow: none;
+}
+
+.feature-list > li:before {
     display: none;
+}
+
+/* Ensure nested list items in feature lists show their bullets */
+ol.feature-list li ul li:before,
+.feature-list li ul li:before {
+    display: block !important;
 }
 
 /* Ordered list styling for feature-list */
@@ -1392,13 +1528,14 @@ ol.feature-list {
 ol.feature-list > li {
     counter-increment: feature-counter;
     position: relative;
-    padding-left: 2.5rem;
+    padding-left: 3rem;
+    margin-bottom: 1rem;
 }
 
 ol.feature-list > li::before {
     content: counter(feature-counter);
     position: absolute;
-    left: 0.75rem;
+    left: 0.5rem;
     top: 0.75rem;
     background: var(--primary);
     color: white;
@@ -1412,19 +1549,7 @@ ol.feature-list > li::before {
     font-size: 0.9rem;
 }
 
-/* Nested lists inside feature-list */
-ol.feature-list li ul {
-    margin-top: 0.5rem;
-    margin-bottom: 0;
-    padding-left: 1rem;
-}
-
-ol.feature-list li ul li {
-    background: none;
-    border-left: none;
-    padding: 0.25rem 0 0.25rem 1.5rem;
-    margin-bottom: 0.25rem;
-}
+/* Nested lists inside feature-list - Removed duplicate rules, see lines 70-117 for nested list styling */
 
 /* Removed duplicate bullet rule - now handled by exception above */
 
@@ -1596,7 +1721,7 @@ ol.feature-list li ul li {
 }
 
 .content-header {
-    background: var(--gradient);
+    background: var(--primary);
     padding: 2rem 2.5rem;
     position: sticky;
     top: 0;
@@ -1684,6 +1809,95 @@ p + ol,
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* Video Tutorial Section */
+.video-tutorial-section {
+    margin: 2rem 0;
+}
+
+.video-details {
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+}
+
+.video-summary {
+    cursor: pointer;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--bg-card);
+    font-weight: 500;
+    user-select: none;
+    transition: all 0.3s ease;
+    list-style: none;
+}
+
+.video-summary:hover {
+    background: var(--bg-secondary);
+}
+
+.video-summary::-webkit-details-marker {
+    display: none;
+}
+
+.video-icon {
+    font-size: 1.5rem;
+}
+
+.expand-indicator {
+    margin-left: auto;
+    transition: transform 0.3s ease;
+}
+
+details[open] .expand-indicator {
+    transform: rotate(90deg);
+}
+
+.video-content {
+    padding: 1.5rem;
+    background: var(--bg-primary);
+}
+
+.tutorial-video {
+    margin-top: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    height: auto;
+}
+
+/* Combined Pro Tips */
+.combined-tips {
+    margin-top: 2rem;
+}
+
+.combined-tips h5 {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+}
+
+.combined-tips ul {
+    list-style: none;
+    padding: 0;
+}
+
+.combined-tips ul li {
+    margin-bottom: 1rem;
+    padding-left: 0;
+    position: relative;
+}
+
+.combined-tips ul li:before {
+    display: none;
+}
+
+.combined-tips ul li:last-child {
+    margin-bottom: 0;
 }
 
 /* Update Hero Section for new layout */

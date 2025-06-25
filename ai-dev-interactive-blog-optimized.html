@@ -84,7 +84,7 @@
                 
                 <div class="comparison-grid">
                     <div class="comparison-card">
-                        <h4>🎯 What We'll Cover</h4>
+                        <h4> What We'll Cover</h4>
                         <ul>
                             <li>How AI "thinks" through tokens</li>
                             <li>Context windows and memory</li>
@@ -93,7 +93,7 @@
                         </ul>
                     </div>
                     <div class="comparison-card">
-                        <h4>💡 Why This Matters</h4>
+                        <h4> Why This Matters</h4>
                         <ul>
                             <li>26% average productivity gains</li>
                             <li>Faster development cycles</li>
@@ -188,7 +188,7 @@
                 <h3>Real-World Token Examples for Developers</h3>
                 <div class="comparison-grid">
                         <div class="comparison-card">
-                            <h4>💻 JavaScript Function</h4>
+                            <h4> JavaScript Function</h4>
                             <div class="code-block">
                                 <code>function add(a, b) {
     return a + b
@@ -197,7 +197,7 @@
                             <p><strong>Typical range:</strong> 8-12 tokens depending on the model</p>
                         </div>
                         <div class="comparison-card">
-                            <h4>📄 JSON Data</h4>
+                            <h4> JSON Data</h4>
                             <div class="code-block">
                                 <code>{"name": "John", "age": 30}</code>
                             </div>
@@ -287,7 +287,7 @@
                 </div>
                 
                 <div class="key-highlight">
-                    <h5>📊 What this means</h5>
+                    <h5>💡 What this means</h5>
                     <p>You can now include entire codebases, documentation sets, and long conversation histories in a single interaction.</p>
                 </div>
             </div>
@@ -297,7 +297,7 @@
                 <p>Despite huge context windows, AI models have a critical limitation: they perform best when important information is at the <strong>beginning or end</strong> of the context, not buried in the middle.</p>
                 
                 <div class="interactive-demo">
-                    <h4>📈 AI Attention Patterns</h4>
+                    <h4> AI Attention Patterns</h4>
                     <div class="attention-chart-horizontal">
                         <div class="attention-section attention-start">
                             <div class="attention-bar-horizontal attention-bar-success">95%</div>
@@ -424,6 +424,14 @@
                     <p>Start developing AI-augmented workflows now. Early adoption helps our team stay at the forefront of development practices and deliver better results faster.</p>
                 </div>
             </div>
+            
+            <div class="card transition-card">
+                <h3>Beyond Context Windows: Enter MCP</h3>
+                <p>While expanding context windows to 2M+ tokens is impressive, there's a fundamental limitation: <strong>AI models are still isolated from live data</strong>. Even with massive context windows, you're limited to what you can paste into the prompt. What if AI could dynamically access your databases, APIs, and tools in real-time?</p>
+                
+                <p>This is where Model Context Protocol (MCP) changes everything. Instead of trying to fit all your data into the AI's memory, MCP lets the AI reach out and grab exactly what it needs, when it needs it.</p>
+                
+            </div>
                 </section>
                 
                 <!-- MCP Section -->
@@ -432,7 +440,9 @@
             
             <div class="card">
                 <h3>What is Model Context Protocol?</h3>
-                <p>Introduced by Anthropic in November 2024, MCP is an open standard that solves the "M×N integration problem" - instead of building custom connections between every AI model and every tool, MCP creates a universal protocol. Think of it as the USB-C port for AI applications.</p>
+                <p>Introduced by Anthropic in November 2024, MCP is an open standard that enables AI to connect directly to your tools and data sources. Instead of copying and pasting information into prompts, MCP creates secure, standardized connections between AI and your systems.</p>
+                
+                <p>Think of it as the difference between emailing someone a screenshot of a spreadsheet (context window) versus giving them secure, read-only access to the live spreadsheet (MCP). The AI can query, analyze, and work with real-time data without the constraints of context limits.</p>
                 
                 <div class="comparison-grid">
                     <div class="comparison-card">
@@ -457,65 +467,277 @@
                     </div>
                 </div>
                   <div class="interactive-demo">
-                    <h4>How MCP Connects Everything</h4>
-                    <div style="text-align: center; padding: 2rem;">
-                        <svg width="400" height="200" viewBox="0 0 400 200" style="max-width: 100%;">
-                            <rect x="10" y="80" width="80" height="40" fill="#c42828" rx="5"/>
-                            <text x="50" y="105" text-anchor="middle" fill="white" font-size="14">Your AI</text>
+                    <h4>MCP Architecture: Local vs Hosted Servers</h4>
+                    <div style="text-align: center; padding: 2rem 0;">
+                        <svg width="700" height="700" viewBox="0 0 700 700" style="max-width: 100%;">
+                            <!-- LOCAL SETUP (Top) -->
+                            <text x="350" y="30" text-anchor="middle" fill="var(--text-primary)" font-size="18" font-weight="bold">Local MCP Setup</text>
                             
-                            <rect x="160" y="80" width="80" height="40" fill="#ef463c" rx="5"/>
-                            <text x="200" y="105" text-anchor="middle" fill="white" font-size="14">MCP</text>
+                            <!-- User's device -->
+                            <rect x="50" y="50" width="400" height="150" fill="none" stroke="#8b5cf6" stroke-width="2" rx="10" stroke-dasharray="5,5"/>
+                            <text x="60" y="70" fill="#8b5cf6" font-size="14" font-weight="bold">Your Device</text>
                             
-                            <rect x="310" y="20" width="80" height="40" fill="#48bb78" rx="5"/>
-                            <text x="350" y="45" text-anchor="middle" fill="white" font-size="12">Database</text>
+                            <!-- AI Client -->
+                            <rect x="80" y="90" width="130" height="50" fill="#c42828" rx="5"/>
+                            <text x="145" y="110" text-anchor="middle" fill="white" font-size="14">MCP Client</text>
+                            <text x="145" y="130" text-anchor="middle" fill="white" font-size="11">(VS Code/Claude)</text>
                             
-                            <rect x="310" y="80" width="80" height="40" fill="#48bb78" rx="5"/>
-                            <text x="350" y="105" text-anchor="middle" fill="white" font-size="12">Docs</text>
+                            <!-- Local MCP Servers -->
+                            <rect x="280" y="90" width="130" height="50" fill="#ef463c" rx="5"/>
+                            <text x="345" y="120" text-anchor="middle" fill="white" font-size="14">Local MCP Server</text>
                             
-                            <rect x="310" y="140" width="80" height="40" fill="#48bb78" rx="5"/>
-                            <text x="350" y="165" text-anchor="middle" fill="white" font-size="12">APIs</text>
+                            <!-- Local connections -->
+                            <line x1="210" y1="115" x2="280" y2="115" stroke="#999999" stroke-width="3" marker-end="url(#arrowhead)"/>
                             
-                            <line x1="90" y1="100" x2="160" y2="100" stroke="#999999" stroke-width="2"/>
-                            <line x1="240" y1="100" x2="310" y2="40" stroke="#999999" stroke-width="2"/>
-                            <line x1="240" y1="100" x2="310" y2="100" stroke="#999999" stroke-width="2"/>
-                            <line x1="240" y1="100" x2="310" y2="160" stroke="#999999" stroke-width="2"/>
+                            <!-- Local Resources inside device -->
+                            <g transform="translate(0, 160)">
+                                <rect x="80" y="0" width="90" height="30" fill="#48bb78" rx="5"/>
+                                <text x="125" y="20" text-anchor="middle" fill="white" font-size="11">Local Files</text>
+                                
+                                <rect x="180" y="0" width="90" height="30" fill="#48bb78" rx="5"/>
+                                <text x="225" y="20" text-anchor="middle" fill="white" font-size="11">Git Repos</text>
+                                
+                                <rect x="280" y="0" width="90" height="30" fill="#48bb78" rx="5"/>
+                                <text x="325" y="20" text-anchor="middle" fill="white" font-size="11">Dev Tools</text>
+                            </g>
+                            
+                            <!-- Local connections to resources inside device -->
+                            <line x1="345" y1="140" x2="125" y2="160" stroke="#999999" stroke-width="2"/>
+                            <line x1="345" y1="140" x2="225" y2="160" stroke="#999999" stroke-width="2"/>
+                            <line x1="345" y1="140" x2="325" y2="160" stroke="#999999" stroke-width="2"/>
+                            
+                            <!-- External resources outside device -->
+                            <text x="550" y="70" fill="#3b82f6" font-size="14" font-weight="bold">☁️ Cloud Services</text>
+                            
+                            <g transform="translate(480, 90)">
+                                <rect x="0" y="0" width="120" height="35" fill="#3b82f6" rx="5"/>
+                                <text x="60" y="22" text-anchor="middle" fill="white" font-size="12">Azure DevOps</text>
+                                
+                                <rect x="0" y="45" width="120" height="35" fill="#3b82f6" rx="5"/>
+                                <text x="60" y="67" text-anchor="middle" fill="white" font-size="12">GitHub API</text>
+                            </g>
+                            
+                            <!-- Connections from local server to external resources -->
+                            <path d="M 410 115 Q 445 115 480 107" stroke="#999999" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+                            <path d="M 410 125 Q 445 125 480 152" stroke="#999999" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+                            
+                            <!-- Local setup description -->
+                            <text x="350" y="280" text-anchor="middle" fill="var(--text-secondary)" font-size="13" font-style="italic">
+                                Local MCP server can access both device resources and external APIs
+                            </text>
+                            
+                            <!-- Dividing line -->
+                            <line x1="50" y1="320" x2="650" y2="320" stroke="var(--border)" stroke-width="2" stroke-dasharray="10,5"/>
+                            
+                            <!-- HOSTED SETUP (Bottom) -->
+                            <text x="350" y="360" text-anchor="middle" fill="var(--text-primary)" font-size="18" font-weight="bold">Hosted MCP Setup</text>
+                            
+                            <!-- Multiple users column -->
+                            <g transform="translate(50, 380)">
+                                <!-- Team Member 1 -->
+                                <rect x="0" y="0" width="180" height="70" fill="none" stroke="#8b5cf6" stroke-width="2" rx="10" stroke-dasharray="5,5"/>
+                                <text x="10" y="20" fill="#8b5cf6" font-size="13" font-weight="bold">Team Member 1</text>
+                                <rect x="10" y="30" width="160" height="30" fill="#c42828" rx="5"/>
+                                <text x="90" y="50" text-anchor="middle" fill="white" font-size="12">Claude/ChatGPT</text>
+                                
+                                <!-- Team Member 2 -->
+                                <rect x="0" y="80" width="180" height="70" fill="none" stroke="#8b5cf6" stroke-width="2" rx="10" stroke-dasharray="5,5"/>
+                                <text x="10" y="100" fill="#8b5cf6" font-size="13" font-weight="bold">Team Member 2</text>
+                                <rect x="10" y="110" width="160" height="30" fill="#c42828" rx="5"/>
+                                <text x="90" y="130" text-anchor="middle" fill="white" font-size="12">VS Code + MCP</text>
+                                
+                                <!-- Team Member 3 -->
+                                <rect x="0" y="160" width="180" height="70" fill="none" stroke="#8b5cf6" stroke-width="2" rx="10" stroke-dasharray="5,5"/>
+                                <text x="10" y="180" fill="#8b5cf6" font-size="13" font-weight="bold">Team Member 3</text>
+                                <rect x="10" y="190" width="160" height="30" fill="#c42828" rx="5"/>
+                                <text x="90" y="210" text-anchor="middle" fill="white" font-size="12">Custom Agent</text>
+                            </g>
+                            
+                            <!-- Cloud/Hosted MCP Server -->
+                            <rect x="350" y="420" width="200" height="150" fill="none" stroke="#3182ce" stroke-width="2" rx="10" stroke-dasharray="8,3"/>
+                            <text x="360" y="440" fill="#3182ce" font-size="14" font-weight="bold">Cloud Infrastructure</text>
+                            
+                            <rect x="375" y="450" width="150" height="50" fill="#ef463c" rx="5"/>
+                            <text x="450" y="470" text-anchor="middle" fill="white" font-size="13">Hosted MCP</text>
+                            <text x="450" y="490" text-anchor="middle" fill="white" font-size="13">Server</text>
+                            
+                            <!-- Auth layer -->
+                            <rect x="375" y="510" width="150" height="35" fill="#fbbf24" rx="3"/>
+                            <text x="450" y="533" text-anchor="middle" fill="#000" font-size="11">Auth & Security Layer</text>
+                            
+                            <!-- Clean connections from users to hosted server -->
+                            <path d="M 230 425 Q 290 425 350 475" stroke="#999999" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+                            <path d="M 230 505 Q 290 505 350 475" stroke="#999999" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+                            <path d="M 230 585 Q 290 585 350 475" stroke="#999999" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+                            
+                            <!-- Hosted Resources -->
+                            <g transform="translate(100, 630)">
+                                <rect x="0" y="0" width="120" height="40" fill="#48bb78" rx="5"/>
+                                <text x="60" y="25" text-anchor="middle" fill="white" font-size="12">Company DB</text>
+                                
+                                <rect x="150" y="0" width="120" height="40" fill="#48bb78" rx="5"/>
+                                <text x="210" y="25" text-anchor="middle" fill="white" font-size="12">Cloud APIs</text>
+                                
+                                <rect x="300" y="0" width="120" height="40" fill="#48bb78" rx="5"/>
+                                <text x="360" y="25" text-anchor="middle" fill="white" font-size="12">SaaS Tools</text>
+                                
+                                <rect x="450" y="0" width="120" height="40" fill="#48bb78" rx="5"/>
+                                <text x="510" y="25" text-anchor="middle" fill="white" font-size="12">Data Lakes</text>
+                            </g>
+                            
+                            <!-- Connections to resources -->
+                            <line x1="450" y1="570" x2="160" y2="630" stroke="#999999" stroke-width="2"/>
+                            <line x1="450" y1="570" x2="310" y2="630" stroke="#999999" stroke-width="2"/>
+                            <line x1="450" y1="570" x2="460" y2="630" stroke="#999999" stroke-width="2"/>
+                            <line x1="450" y1="570" x2="560" y2="630" stroke="#999999" stroke-width="2"/>
+                            
+                            <!-- Hosted setup description -->
+                            <text x="350" y="690" text-anchor="middle" fill="var(--text-secondary)" font-size="13" font-style="italic">
+                                Multiple users, shared resources - Team collaboration enabled
+                            </text>
+                            
+                            <!-- Arrow marker definition -->
+                            <defs>
+                                <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                    <polygon points="0 0, 10 3.5, 0 7" fill="#999999"/>
+                                </marker>
+                            </defs>
                         </svg>
-                    </div>                    <p style="color: var(--text-secondary); font-style: italic; margin-top: 1rem;">
-                        One AI assistant can now access multiple systems through standardized MCP connections
+                    </div>
+                    <p style="color: var(--text-secondary); font-style: italic; margin-top: 1rem; text-align: center;">
+                        MCP supports both local-first security for individual developers and hosted servers for team collaboration
                     </p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>MCP Core Architecture</h3>
+                <p>Understanding MCP's three-component architecture helps explain its power:</p>
+                
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>🏠 Host</h4>
+                        <p>The primary AI application users interact with (Claude Desktop, ChatGPT, VS Code, etc.). This is where you type your prompts and see responses.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🔌 Client</h4>
+                        <p>Lives inside the Host app and manages connections to MCP servers. Maintains a 1:1 relationship with each server for security.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🖥️ Server</h4>
+                        <p>Exposes tools, resources, and prompts to the AI. Can run locally on your machine or be hosted for team access.</p>
+                    </div>
+                </div>
+                
+                <div class="key-highlight">
+                    <h5>🔐 Security First</h5>
+                    <p>MCP prioritizes "local-first security" - servers run locally by default with explicit user approval required for every tool or resource access. This ensures you maintain complete control over what data your AI can access.</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>How MCP Solves Context Window Constraints</h3>
+                <p>MCP fundamentally changes how AI accesses information, moving from static context windows to dynamic data access:</p>
+                
+                <div class="comparison-grid">
+                    <div class="comparison-card">
+                        <h4>📄 Context Window Approach</h4>
+                        <ul>
+                            <li><strong>Static:</strong> Copy-paste data into prompts</li>
+                            <li><strong>Limited:</strong> Even 2M tokens fill up quickly</li>
+                            <li><strong>Stale:</strong> Data becomes outdated immediately</li>
+                            <li><strong>Manual:</strong> You manage what to include</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-card">
+                        <h4>🔌 MCP Approach</h4>
+                        <ul>
+                            <li><strong>Dynamic:</strong> AI queries data as needed</li>
+                            <li><strong>Unlimited:</strong> Access entire databases/APIs</li>
+                            <li><strong>Real-time:</strong> Always current information</li>
+                            <li><strong>Automatic:</strong> AI decides what to fetch</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="key-highlight">
+                    <h5>💡 The Game Changer</h5>
+                    <p>Instead of asking "How much can I fit in the context window?", MCP lets you ask "What systems should my AI have access to?" This shift from memory constraints to capability expansion is revolutionary.</p>
                 </div>
             </div>
             
             <div class="card">
                 <h3>Real-World MCP Impact</h3>
-                <p>Within months of launch, MCP transformed how developers work with AI:</p>
+                <p>The protocol has seen explosive growth since its November 2024 launch:</p>
                 
                 <div class="comparison-grid">
                     <div class="comparison-card">
-                        <h4>🚀 Rapid Adoption</h4>
-                        <p><strong>250+ MCP servers</strong> available covering enterprise tools like Google Drive, Postgres, Salesforce</p>
+                        <h4>🚀 Explosive Growth</h4>
+                        <p><strong>5,000+ MCP servers</strong> by May 2025<br>
+                        From 250 at launch to thousands in months</p>
                     </div>
                     <div class="comparison-card">
-                        <h4>🏢 Enterprise Ready</h4>
-                        <p><strong>Major platforms integrated:</strong> OpenAI ChatGPT, Zed, Replit, Codeium, Sourcegraph</p>
+                        <h4>🏢 Industry Adoption</h4>
+                        <p><strong>OpenAI joined March 2025</strong><br>
+                        ChatGPT, Claude, and major IDEs now support MCP</p>
+                    </div>
+                    <div class="comparison-card">
+                        <h4>🛠️ Developer Tools</h4>
+                        <p><strong>Official SDKs:</strong> Python, TypeScript, C#, Java<br>
+                        Microsoft partnered for C# SDK development</p>
                     </div>
                 </div>
                 
                 <div class="interactive-demo">
-                    <h4>🎯 Example: AI-Powered Workflow</h4>
-                    <div class="code-block">
-                        <code>"Analyze last week's pull requests, check for any failing tests, and create a Notion page summarizing key changes"</code>
+                    <h4>🎯 Example: Context Window vs MCP in Action</h4>
+                    
+                    <div class="comparison-grid">
+                        <div class="comparison-card">
+                            <h5>Without MCP (Context Window)</h5>
+                            <div class="code-block">
+                                <code>// You have to manually gather everything:
+1. Export all PRs to JSON (2MB)
+2. Copy test results (500KB)
+3. Paste codebase context (5MB)
+4. Include documentation (1MB)
+
+// Total: 8.5MB of text to paste
+// Problem: Data is already outdated!</code>
+                            </div>
+                        </div>
+                        <div class="comparison-card">
+                            <h5>With MCP</h5>
+                            <div class="code-block">
+                                <code>// Just ask:
+"Analyze last week's pull requests, 
+check for any failing tests, and 
+create a Notion page summarizing 
+key changes"
+
+// MCP dynamically queries:
+- Live GitHub API
+- Real-time CI/CD status
+- Current codebase state
+- Creates documentation automatically</code>
+                            </div>
+                        </div>
                     </div>
+                    
                     <p class="workflow-explanation">
-                        <strong>What happens:</strong> MCP servers fetch GitHub data → analyze code changes → check CI/CD status → create Notion documentation → all from a single prompt
+                        <strong>The key difference:</strong> MCP transforms AI from a static analyzer to a dynamic assistant that can interact with your entire development ecosystem in real-time.
                     </p>
                 </div>
             </div>
             
-            <div class="card">
-                <h3>Azure DevOps MCP - Enterprise Integration Example</h3>
-                <h4>The Azure DevOps Integration Challenge</h4>
-                <p>Modern development teams work across repositories, builds, pull requests, and work items. The Azure DevOps MCP brings this entire ecosystem into your AI conversation, enabling seamless project management and development workflows.</p>
+            <div class="card exercise-card">
+                <h3>🎯 Interactive Exercise: Azure DevOps MCP Integration</h3>
+                <div class="exercise-notice">
+                    <h4>⚡ This is a hands-on exercise!</h4>
+                    <p>You will need to complete this setup and submit screenshots of your results. This exercise demonstrates how MCP transforms your AI assistant into a powerful project management tool.</p>
+                </div>
+                
+                <h4>Exercise Overview</h4>
+                <p>In this exercise, you'll connect your AI assistant to Azure DevOps and use it to identify your 5 most urgent/pressing tasks. This real-world integration shows how MCP can streamline your daily workflow.</p>
                 
                 <h4>Prerequisites & Installation</h4>
                 <ol class="feature-list">
@@ -605,42 +827,61 @@
                     </div>
                 </div>
                 
-                <h4>What You Can Do</h4>
+                <h4>📝 Exercise Tasks - Complete These Steps</h4>
+                <div class="exercise-steps">
+                    <h5>Step 1: Connect to Azure DevOps</h5>
+                    <p>Choose one of the setup options above and connect your AI assistant to your Azure DevOps organization.</p>
+                    
+                    <h5>Step 2: Query Your Tasks</h5>
+                    <p>Once connected, use these prompts to identify your most urgent work:</p>
+                    <div class="code-block">
+                        <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                        <pre><code># Try these prompts in order:
+1. "Show me all my active work items sorted by priority"
+2. "List work items assigned to me that are overdue or due this week"
+3. "Show me high priority bugs assigned to me"
+4. "What are my current sprint tasks?"
+5. "Summarize my 5 most urgent tasks based on priority and due date"</code></pre>
+                    </div>
+                    
+                    <h5>Step 3: Document Your Results</h5>
+                    <p>Take screenshots showing:</p>
+                    <ol class="feature-list">
+                        <li>Your AI assistant connected to Azure DevOps MCP</li>
+                        <li>The response showing your 5 most urgent/pressing tasks</li>
+                        <li>Any additional insights the AI provides about your workload</li>
+                    </ol>
+                    
+                    <h5>Step 4: Submit Your Exercise</h5>
+                    <div class="submission-box">
+                        <h6>📤 Submission Requirements</h6>
+                        <p><strong>Upload your screenshots to:</strong></p>
+                        <div class="placeholder-box">
+                            <p>🚧 [SharePoint Location - To Be Provided]</p>
+                            <p class="placeholder-note">Your instructor will provide the specific SharePoint folder URL for submissions</p>
+                        </div>
+                        <p><strong>File naming convention:</strong> <code>YourName_AzureDevOpsMCP_Screenshots.zip</code></p>
+                    </div>
+                </div>
+                
+                <h4>Example Capabilities You'll Explore</h4>
                 <div class="capabilities-grid">
                     <div class="capability-card">
-                        <h6>📋 Project Management</h6>
+                        <h6>📋 Task Discovery</h6>
                         <ul>
-                            <li>"List my ADO projects"</li>
-                            <li>"Show work items in current sprint"</li>
-                            <li>"Create a bug for login issue"</li>
-                            <li>"Update work item 1234 to In Progress"</li>
+                            <li>Find overdue work items</li>
+                            <li>Identify blocking issues</li>
+                            <li>Review sprint commitments</li>
+                            <li>Analyze task dependencies</li>
                         </ul>
                     </div>
                     <div class="capability-card">
-                        <h6>🔧 Build & Release</h6>
+                        <h6>🎯 Priority Analysis</h6>
                         <ul>
-                            <li>"Show failed builds for MyProject"</li>
-                            <li>"Get build logs for build 567"</li>
-                            <li>"List release definitions"</li>
-                            <li>"Trigger build for main branch"</li>
-                        </ul>
-                    </div>
-                    <div class="capability-card">
-                        <h6>🔀 Code Review</h6>
-                        <ul>
-                            <li>"List my pull requests"</li>
-                            <li>"Create PR from feature/auth to main"</li>
-                            <li>"Show PR comments for PR 123"</li>
-                            <li>"Reply to PR thread discussion"</li>
-                        </ul>
-                    </div>
-                    <div class="capability-card">
-                        <h6>🔍 Search & Analysis</h6>
-                        <ul>
-                            <li>"Search code for 'authentication'"</li>
-                            <li>"Find work items assigned to me"</li>
-                            <li>"Show test results for build 890"</li>
-                            <li>"List repositories in MyProject"</li>
+                            <li>Sort by business impact</li>
+                            <li>Check SLA deadlines</li>
+                            <li>Review critical path items</li>
+                            <li>Identify quick wins</li>
                         </ul>
                     </div>
                 </div>
@@ -653,8 +894,29 @@
                     <li><strong>Permission issues:</strong> Confirm your Azure DevOps account has appropriate project permissions</li>
                 </ul>
                 
-                <div class="pro-tip">
-                    <p><strong>💡 Pro Tip:</strong> Create a <code>.github/copilot-instructions.md</code> file in your project and copy the <a href="https://github.com/microsoft/azure-devops-mcp/blob/main/.github/copilot-instructions.md" target="_blank">official instructions</a> to optimize your Azure DevOps MCP experience with GitHub Copilot.</p>
+                <div class="video-tutorial-section">
+                    <details class="video-details">
+                        <summary class="video-summary">
+                            <span class="video-icon">🎥</span>
+                            <span>Video Tutorial: Setting up Azure DevOps MCP in VS Code</span>
+                            <span class="expand-indicator">▶</span>
+                        </summary>
+                        <div class="video-content">
+                            <p>Watch this demonstration of installing and using the Azure DevOps MCP integration with expected results:</p>
+                            <video controls width="100%" class="tutorial-video">
+                                <source src="Vscode-Devops-example.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </details>
+                </div>
+                
+                <div class="pro-tip combined-tips">
+                    <h5>💡 Pro Tip</h5>
+                    <ul>
+                        <li><strong>Optimize your experience:</strong> Create a <code>.github/copilot-instructions.md</code> file in your project and copy the <a href="https://github.com/microsoft/azure-devops-mcp/blob/main/.github/copilot-instructions.md" target="_blank">official instructions</a> to enhance your Azure DevOps MCP experience with GitHub Copilot.</li>
+                        <li><strong>Troubleshooting help:</strong> Having trouble with installation? Use GitHub Copilot or your AI assistant to help! Simply describe your error message or issue, and it can guide you through troubleshooting steps specific to your environment and configuration.</li>
+                    </ul>
                 </div>
                 
                 <h4>Real Enterprise Benefits</h4>
