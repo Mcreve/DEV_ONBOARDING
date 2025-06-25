@@ -345,7 +345,7 @@ section:not(.hero):not(:last-child)::before {
 .context-growth-animation {
     position: relative;
     margin: 1.5rem 0;
-    min-height: 60px;
+    min-height: 80px;
     padding: 1rem;
     overflow: visible;
     font-family: 'Monaco', 'Consolas', 'Courier New', monospace;
@@ -359,90 +359,121 @@ section:not(.hero):not(:last-child)::before {
     border: 1px solid var(--border);
 }
 
-.context-window-bar {
+.context-bar-container {
+    width: 100%;
     position: relative;
-    padding: 0.5rem 1rem;
-    background: rgba(196, 40, 40, 0.1);
-    border: 1px solid var(--primary);
-    border-radius: 6px;
-    margin: 0 0.5rem;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--primary);
-    font-family: 'Monaco', 'Consolas', 'Courier New', monospace;
-    font-size: 0.9rem;
+}
+
+.context-bar-track {
+    position: relative;
+    width: 100%;
+    height: 24px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.context-bar-fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, var(--primary) 0%, rgba(196, 40, 40, 0.8) 100%);
+    border-radius: 12px;
+    transition: width 2s ease-out;
+    box-shadow: 0 2px 10px rgba(196, 40, 40, 0.3);
+    z-index: 1;
+}
+
+.context-bar-labels {
+    position: absolute;
+    top: -25px;
+    left: 0;
+    right: 0;
+    height: 20px;
+}
+
+.context-label {
+    position: absolute;
+    transform: translateX(-50%);
     font-weight: bold;
-    transition: all 0.5s ease;
+    color: var(--primary);
+    white-space: nowrap;
+    transition: opacity 0.5s ease-out;
 }
 
-.context-window-bar.grow-8k {
-    width: 100px;
-    animation: growFrom8k 3s ease-in-out;
+.context-bar-grey-zone {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(128, 128, 128, 0.1),
+        rgba(128, 128, 128, 0.1) 10px,
+        rgba(128, 128, 128, 0.2) 10px,
+        rgba(128, 128, 128, 0.2) 20px
+    );
+    border-radius: 0 12px 12px 0;
+    opacity: 0.5;
 }
 
-.context-window-bar.grow-128k {
-    width: 300px;
-    animation: growFrom128k 3s ease-in-out;
+.context-bar-grey-zone::after {
+    content: 'Future';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    opacity: 0.7;
 }
 
-.context-window-bar.grow-2m {
-    width: 600px;
-    animation: growFrom2m 3s ease-in-out;
-}
-
-@keyframes growFrom8k {
-    0% {
-        width: 0;
-        opacity: 0;
-    }
-    20% {
-        opacity: 0.8;
-    }
-    100% {
-        width: 100px;
-    }
-}
-
-@keyframes growFrom128k {
-    0% {
-        width: 0;
-        opacity: 0;
-    }
-    10% {
-        width: 100px;
-        opacity: 0.8;
-    }
-    100% {
-        width: 300px;
-    }
-}
-
-@keyframes growFrom2m {
-    0% {
-        width: 0;
-        opacity: 0;
-    }
-    10% {
-        width: 300px;
-        opacity: 0.8;
-    }
-    100% {
-        width: 600px;
-    }
-}
-
-/* Add some visual enhancements */
-.context-window-bar::before {
+/* Add shimmer effect to the growing bar */
+.context-bar-fill::before {
     content: '';
     position: absolute;
     top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%);
+    border-radius: 12px;
+    animation: shimmer 2s infinite;
+}
+
+/* Timeline styles */
+.context-timeline {
+    position: absolute;
+    bottom: -25px;
     left: 0;
     right: 0;
-    bottom: 0;
-    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.2) 50%, transparent 100%);
-    border-radius: 10px;
-    animation: shimmer 2s infinite;
+    height: 20px;
+}
+
+.timeline-year {
+    position: absolute;
+    transform: translateX(-50%);
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    transition: opacity 0.5s ease-out;
+}
+
+.timeline-year.future-year {
+    opacity: 0.5;
+    font-style: italic;
+}
+
+/* Dark mode adjustments for context bar */
+[data-theme="dark"] .context-bar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .context-bar-fill {
+    background: linear-gradient(90deg, var(--primary) 0%, rgba(196, 40, 40, 0.9) 100%);
 }
 
 @keyframes shimmer {

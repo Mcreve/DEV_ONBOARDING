@@ -281,30 +281,63 @@ function initContextAnimation() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                contextGrowth.innerHTML = '';
+                // Create container for the growing bar
+                contextGrowth.innerHTML = `
+                    <div class="context-bar-container">
+                        <div class="context-bar-track">
+                            <div class="context-bar-fill"></div>
+                            <div class="context-bar-grey-zone"></div>
+                        </div>
+                        <div class="context-bar-labels">
+                            <span class="context-label" style="left: 0">0</span>
+                            <span class="context-label milestone-8k" style="left: 8%">8K</span>
+                            <span class="context-label milestone-128k" style="left: 25%">128K</span>
+                            <span class="context-label milestone-2m" style="left: 50%">2M+</span>
+                            <span class="context-label milestone-10m" style="left: 100%">10M+</span>
+                        </div>
+                        <div class="context-timeline">
+                            <span class="timeline-year" style="left: 8%">2023</span>
+                            <span class="timeline-year" style="left: 25%">2024</span>
+                            <span class="timeline-year" style="left: 50%">2025</span>
+                            <span class="timeline-year future-year" style="left: 100%">Future</span>
+                        </div>
+                    </div>
+                `;
+                
+                const barFill = contextGrowth.querySelector('.context-bar-fill');
+                const labels = contextGrowth.querySelectorAll('.context-label');
+                
+                // Show all labels immediately but faded
+                labels.forEach(label => {
+                    if (!label.textContent.includes('0')) {
+                        label.style.opacity = '0.3';
+                    }
+                });
+                
+                // Also fade timeline years
+                const timelineYears = contextGrowth.querySelectorAll('.timeline-year');
+                timelineYears.forEach(year => {
+                    year.style.opacity = '0.3';
+                });
+                
+                // Animation sequence - slower timing
+                setTimeout(() => {
+                    barFill.style.width = '8%';
+                    contextGrowth.querySelector('.milestone-8k').style.opacity = '1';
+                    contextGrowth.querySelector('.timeline-year[style*="8%"]').style.opacity = '1';
+                }, 1000);
                 
                 setTimeout(() => {
-                    const bar1 = document.createElement('div');
-                    bar1.className = 'context-window-bar grow-8k';
-                    bar1.textContent = '8K';
-                    contextGrowth.appendChild(bar1);
-                }, 500);
+                    barFill.style.width = '25%';
+                    contextGrowth.querySelector('.milestone-128k').style.opacity = '1';
+                    contextGrowth.querySelector('.timeline-year[style*="25%"]').style.opacity = '1';
+                }, 3000);
                 
                 setTimeout(() => {
-                    contextGrowth.innerHTML = '';
-                    const bar2 = document.createElement('div');
-                    bar2.className = 'context-window-bar grow-128k';
-                    bar2.textContent = '128K';
-                    contextGrowth.appendChild(bar2);
-                }, 2000);
-                
-                setTimeout(() => {
-                    contextGrowth.innerHTML = '';
-                    const bar3 = document.createElement('div');
-                    bar3.className = 'context-window-bar grow-2m';
-                    bar3.textContent = '2M+';
-                    contextGrowth.appendChild(bar3);
-                }, 3500);
+                    barFill.style.width = '50%';
+                    contextGrowth.querySelector('.milestone-2m').style.opacity = '1';
+                    contextGrowth.querySelector('.timeline-year[style*="50%"]').style.opacity = '1';
+                }, 5000);
                 
                 observer.unobserve(entry.target);
             }
