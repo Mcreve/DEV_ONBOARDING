@@ -758,10 +758,10 @@ key changes"
                             <li><strong>Windows:</strong> <a href="https://aka.ms/installazurecliwindows" target="_blank">Download MSI installer</a></li>
                             <li><strong>macOS:</strong> <code>brew install azure-cli</code></li>
                             <li><strong>Linux:</strong> <a href="https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-linux" target="_blank">Package managers</a></li>
-                            <li><strong>After installation, login:</strong> <code>az login</code> in your terminal</li>
                         </ul>
                     </li>
-                    <li><strong>Install VS Code or VS Code Insiders:</strong> <a href="https://code.visualstudio.com/" target="_blank">Download here</a></li>
+                    <li><strong>Login to Azure:</strong> Run <code>az login</code> in your terminal</li>
+                    <li><strong>Install VS Code or VS Code Insiders:</strong> <a href="https://code.visualstudio.com/" target="_blank">Download here</a> (if needed)</li>
                 </ol>
                 
                 <h4>Setup Methods</h4>
@@ -1144,7 +1144,7 @@ key changes"
                 
                 <!-- Career Impact Summary Section -->
                 <section class="content-section" id="career-impact">
-            <h2><span class="section-number">5</span>Career Development in the AI Era</h2>
+            <h2><span class="section-number">7</span>Career Development in the AI Era</h2>
             
             <div class="card">
                 <h3>Key Career Insights for Developers</h3>
@@ -1197,7 +1197,7 @@ key changes"
                 
                 <!-- AI Tool Configuration Section -->
                 <section class="content-section" id="ai-config">
-            <h2><span class="section-number">6</span>AI Tool Configuration</h2>
+            <h2><span class="section-number">5</span>AI Tool Configuration</h2>
             
             <div class="card">
                 <h3>Mastering AI Context Management</h3>
@@ -1611,7 +1611,25 @@ npm run mcp:inspector
 2. **During implementation**:
    - Extract protocol knowledge from abap-adt-api
    - Transform to MCP patterns (never copy)
-   - Test using MCP testing patterns</code></pre>
+   - Test using MCP testing patterns
+
+3. **After implementation**:
+   - Verify no direct copies exist
+   - Ensure all MCP patterns followed
+   - Update documentation
+
+### Remember for V0.3.0
+- Transform abap-adt-api knowledge into MCP excellence
+- Every ADT feature must feel native to MCP
+- Dual-reference approach is mandatory
+- Architecture consistency trumps quick implementation
+- Test the transformation, not just the feature
+
+### Post V0.3.0 Roadmap
+1. **V0.4.0**: Extended ADT objects (Data Elements, Domains, Tables via ADT)
+2. **V0.5.0**: Advanced navigation and cross-references
+3. **V0.6.0**: ADT write operations (if needed)
+4. **V1.0.0**: Production release with full ADT support</code></pre>
                 </div>
                 
                 <div class="key-highlight">
@@ -1681,15 +1699,199 @@ npm run mcp:inspector
                 
                 <!-- Development Workflow Section -->
                 <section class="content-section" id="dev-workflow">
-            <h2><span class="section-number">7</span>Development Workflow</h2>
+            <h2><span class="section-number">6</span>Development Workflow</h2>
             
             <div class="card">
-                <h3>My AI-Enhanced Development Workflow</h3>
-                <p>This section will detail my complete development workflow combining multiple AI tools for maximum productivity.</p>
+                <h3>Think-Then-Code: My Core Philosophy</h3>
+                <p>The most effective approach to AI-assisted development follows a simple pattern: use thinking models for the hard stuff, then switch to fast models for implementation. It's like having two different team members - one brilliant at architecture and planning, another incredibly fast at coding.</p>
+                
+                <div class="comparison-grid">
+                    <div class="comparison-card">
+                        <h4>🧠 Thinking Models</h4>
+                        <p class="stat-number">30s - 2min</p>
+                        <p>response time for deep analysis</p>
+                        <ul>
+                            <li><strong>Examples:</strong> Claude Opus 4, GPT-4 o1, Gemini 2.5 Pro Deep Think</li>
+                            <li>Architectural decisions & system design</li>
+                            <li>Complex problem-solving & edge cases</li>
+                            <li>Algorithm optimization</li>
+                            <li>Codebase analysis</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-card">
+                        <h4>⚡ Fast Implementation Models</h4>
+                        <p class="stat-number">&lt;5s</p>
+                        <p>response time for code generation</p>
+                        <ul>
+                            <li><strong>Examples:</strong> Claude Sonnet 4, Gemini 2.5 Flash, GPT-4 Turbo</li>
+                            <li>Code generation & implementation</li>
+                            <li>Simple transformations</li>
+                            <li>Quick iterations</li>
+                            <li>Refactoring & cleanup</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>My SDLC Workflow with AI</h3>
+                
+                <h4>Phase 1: Planning and Defining</h4>
+                <p>I collaborate with thinking models as co-architects during planning:</p>
+                <ul class="feature-list">
+                    <li><strong>Initial brainstorming</strong> - Describe problems in natural language, explore multiple architectural approaches</li>
+                    <li><strong>Requirements analysis</strong> - Paste user stories, emails, or notes; AI helps structure them into clear requirements</li>
+                    <li><strong>Technology selection</strong> - Discuss trade-offs between tech stacks with pros/cons analysis</li>
+                    <li><strong>Risk assessment</strong> - AI plays devil's advocate to identify potential issues</li>
+                </ul>
+                
+                <h4>Phase 2: Designing</h4>
+                <p>Thinking models excel at creating comprehensive design documents:</p>
+                <ul class="feature-list">
+                    <li><strong>Architecture diagrams</strong> - Create system diagrams using Mermaid/PlantUML syntax</li>
+                    <li><strong>Database design</strong> - Design schemas with proper relationships and constraints</li>
+                    <li><strong>API contracts</strong> - Define service boundaries and interface specifications</li>
+                    <li><strong>Pattern selection</strong> - Identify design patterns that fit the problem domain</li>
+                </ul>
+                
+                <h4>Phase 3: Building</h4>
+                <p>Switch to fast models for implementation with clear context from planning:</p>
+                <ul class="feature-list">
+                    <li><strong>Set up context</strong> - Provide design docs, code structure, standards, and framework details</li>
+                    <li><strong>Incremental development</strong> - Break features into small chunks with clear acceptance criteria</li>
+                    <li><strong>Use MCP for live data</strong> - Access codebase, Azure DevOps items, and test results directly</li>
+                    <li><strong>Regular commits</strong> - Preserve working states frequently for easy rollback if needed</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h3>Managing Context Effectively</h3>
+                <p>Context management makes or breaks AI effectiveness. Here's my approach:</p>
+                
+                <h4>Project Configuration Files</h4>
+                <p>I use the standard configuration files for each tool to guide AI behavior. See <span onclick="const link = document.querySelector('.sidebar-link[data-section=\'ai-config\']'); if(link) link.click();" style="color: var(--primary); text-decoration: underline; cursor: pointer;">Section 5: AI Tool Configuration</span> for detailed examples of <code>.github/copilot-instructions.md</code>, <code>CLAUDE.md</code>, and <code>.cursorrules</code> files.</p>
+                
+                <h4>Dynamic Context Loading</h4>
+                <p>Rather than dumping everything into AI's context, be selective and strategic:</p>
+                <ol class="feature-list">
+                    <li><strong>Start minimal</strong> - Begin with just the essential context for the task</li>
+                    <li><strong>Add incrementally</strong> - Use @ references to add specific files as needed</li>
+                    <li><strong>Remove noise</strong> - Clear irrelevant context to maintain AI focus</li>
+                    <li><strong>Summarize when possible</strong> - Use file summaries instead of full files for large codebases</li>
+                    <li><strong>New chats for clarity</strong> - Start fresh conversations or use "condense" features to avoid the "lost in the middle" problem where AI misses important context buried in long conversations</li>
+                </ol>
                 
                 <div class="pro-tip">
-                    <p><strong>🚧 Coming Soon:</strong> Detailed workflow documentation including daily routines, tool combinations, and real-world examples.</p>
+                    <h5>💡 Advanced Context Tips</h5>
+                    <ul>
+                        <li><strong>Use WSL for better results</strong> - Commands from AI agents work more reliably in Linux environments. Windows-specific paths and commands often cause issues.</li>
+                        <li><strong>Reference codebases as context</strong> - Keep example projects in your workspace that AI can read for patterns. For instance, add a well-structured project similar to what you're building for the AI to reference.</li>
+                    </ul>
                 </div>
+            </div>
+            
+            <div class="card">
+                <h3>Handling AI Loops and Recovery</h3>
+                
+                <div class="key-highlight">
+                    <h5>🔄 Recognizing Stuck States</h5>
+                    <ul>
+                        <li>AI suggests the same fix repeatedly</li>
+                        <li>Error messages don't change despite "fixes"</li>
+                        <li>Suggestions become increasingly generic</li>
+                        <li>AI contradicts earlier advice</li>
+                    </ul>
+                </div>
+                
+                <h4>Recovery Strategy</h4>
+                <ol class="feature-list">
+                    <li><strong>Stop immediately</strong> - Don't push the same approach</li>
+                    <li><strong>Stash changes</strong> - Use <code>git stash</code> to save work</li>
+                    <li><strong>Revert to working</strong> - Get back to known good state</li>
+                    <li><strong>Reset context</strong> - Start fresh conversation</li>
+                    <li><strong>Try different angle</strong> - Switch models, rephrase, or ask for alternatives</li>
+                </ol>
+                
+                <h4>Prevention Techniques</h4>
+                <ul>
+                    <li>Be specific about what's not working</li>
+                    <li>Provide exact error messages</li>
+                    <li>Share what you've already tried</li>
+                    <li>Ask for reasoning before solutions</li>
+                    <li>Request multiple approaches upfront</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h3>Real-World Example: My Typical Day</h3>
+                <p>Here's how this workflow comes together in practice:</p>
+                
+                <div class="comparison-grid">
+                    <div class="comparison-card">
+                        <h4>🌅 Morning: Planning</h4>
+                        <p>Start with thinking models</p>
+                        <ul>
+                            <li>Review tasks in Azure DevOps</li>
+                            <li>Analyze complex problems</li>
+                            <li>Create implementation plan</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-card">
+                        <h4>☀️ Mid-Morning: Building</h4>
+                        <p>Switch to fast models</p>
+                        <ul>
+                            <li>Implement incrementally</li>
+                            <li>Quick code generation</li>
+                            <li>Commit frequently</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-card">
+                        <h4>🌤️ Afternoon: Review</h4>
+                        <p>Back to thinking models</p>
+                        <ul>
+                            <li>Code review & analysis</li>
+                            <li>Generate tests & docs</li>
+                            <li>Polish and optimize</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-card">
+                        <h4>🌙 End of Day: Document</h4>
+                        <p>Capture learnings</p>
+                        <ul>
+                            <li>Update CLAUDE.md</li>
+                            <li>Document new patterns</li>
+                            <li>Prepare tomorrow's context</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card key-takeaway">
+                <h3>💡 Key Takeaways</h3>
+                <div class="comparison-grid">
+                    <div class="comparison-card">
+                        <h5>Essential Lessons</h5>
+                        <ul>
+                            <li><strong>Match model to task</strong> - Thinking for hard problems, fast for implementation</li>
+                            <li><strong>Context is everything</strong> - Well-organized files make AI effective</li>
+                            <li><strong>Incremental progress</strong> - Small, focused sessions beat marathons</li>
+                            <li><strong>Embrace the reset</strong> - Don't fight stuck AI; start fresh</li>
+                            <li><strong>Document constantly</strong> - Future you (and AI) will thank you</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-card">
+                        <h5>Version Control in AI Era</h5>
+                        <ul>
+                            <li><strong>Frequent, small commits</strong> - Easy to revert if AI misleads</li>
+                            <li><strong>Clear commit messages</strong> - Indicate AI-generated portions</li>
+                            <li><strong>Branch protection</strong> - Never commit directly to main</li>
+                            <li><strong>Human review required</strong> - AI code always needs human eyes</li>
+                            <li><strong>Lessons learned log</strong> - Track failed approaches</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 1.5rem; text-align: center; font-style: italic;">This workflow has transformed how I develop software. It's not about replacing my skills—it's about amplifying them. The AI handles the tedious parts while I focus on the creative and strategic decisions that only a human can make.</p>
             </div>
                 </section>
                 
