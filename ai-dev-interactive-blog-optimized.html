@@ -40,7 +40,18 @@
                     </div>
                     <div class="section-content expanded">
                         <a href="#mcp" class="sidebar-link" data-section="mcp">Model Context Protocol (MCP)</a>
-                        <a href="#setup" class="sidebar-link" data-section="setup">Development Setup</a>
+                        <a href="#setup" class="sidebar-link" data-section="setup">IDE Setup</a>
+                    </div>
+                </div>
+                
+                <div class="sidebar-section expandable">
+                    <div class="section-header">
+                        <span class="section-title">Advanced Configuration</span>
+                        <span class="expand-icon">▼</span>
+                    </div>
+                    <div class="section-content expanded">
+                        <a href="#ai-config" class="sidebar-link" data-section="ai-config">AI Tool Configuration</a>
+                        <a href="#dev-workflow" class="sidebar-link" data-section="dev-workflow">Development Workflow</a>
                     </div>
                 </div>
                 
@@ -933,7 +944,7 @@ key changes"
                 
                 <!-- Setup Section -->
                 <section class="content-section" id="setup">
-            <h2><span class="section-number">4</span>Your Development Setup</h2>
+            <h2><span class="section-number">4</span>IDE Setup</h2>
             
             <div class="card">
                 <h3>The Data on AI Tool Effectiveness</h3>
@@ -964,88 +975,169 @@ key changes"
                     </div>
                 </div>
                 
-                <p><strong>Important note:</strong> Benefits take time to materialize - research shows 11 weeks needed to fully realize productivity gains.</p>
+                <div class="key-highlight">
+                    <h5>💡 Key Insight</h5>
+                    <p>Benefits take time to materialize - research shows <strong>11 weeks needed to fully realize productivity gains</strong>.</p>
+                </div>
             </div>
             
             <div class="card">
-                <h3>Choosing the Right Tools for Your Workflow</h3>
-                <p>Based on JetBrains survey data and enterprise adoption patterns:</p>
+                <h3>Choosing Your AI Coding Assistant</h3>
+                <p>The AI coding landscape offers three distinct approaches, each with different pricing models and capabilities:</p>
                 
                 <div class="card">
-                    <h4>Option 1: IDE Extensions (Easiest Start)</h4>
+                    <h4>Option 1: IDE Extensions - Flexible Payment Models</h4>
+                    <p>Extensions that enhance your existing IDE with AI capabilities. Choose between predictable subscriptions or pay-as-you-go API usage.</p>
+                    
+                    <h5>💳 Subscription-Based Extensions</h5>
                     <div class="comparison-grid">
                         <div class="comparison-card">
                             <h5>GitHub Copilot</h5>
                             <ul>
-                                <li>Code completion & chat</li>
-                                <li>Supports 60+ languages</li>
-                                <li>$10/month per user</li>
-                                <li>Enterprise features available</li>
+                                <li><strong>Price:</strong> $10/month individual, $19/month business</li>
+                                <li>Inline code completion & chat</li>
+                                <li>60+ language support</li>
+                                <li>Works in VS Code, JetBrains, Neovim</li>
+                                <li>Fixed monthly cost, unlimited usage</li>
                             </ul>
                         </div>
                         <div class="comparison-card">
-                            <h5>Cursor IDE</h5>
+                            <h5>Cody (Sourcegraph)</h5>
                             <ul>
-                                <li>AI-first code editor</li>
-                                <li>Multi-file editing</li>
-                                <li>$20/month professional</li>
-                                <li>Built-in AI chat</li>
+                                <li><strong>Price:</strong> Free tier, Pro at ~$9/month</li>
+                                <li>Whole codebase context</li>
+                                <li>Enterprise security focus</li>
+                                <li>Shared team prompts</li>
+                                <li>No data retention or training</li>
                             </ul>
                         </div>
                     </div>
                     
-                    <p><strong>👍 Pros:</strong> Easy setup, familiar environment, immediate productivity</p>
-                    <p><strong>👎 Cons:</strong> Limited to specific IDEs, vendor lock-in</p>
-                </div>
-                
-                <div class="card">
-                    <h4>Option 2: AI Chat Applications (Maximum Flexibility)</h4>
-                    <div class="code-block">
-                        <button class="copy-button" onclick="copyCode(this)">Copy</button>
-                        <pre><code># Claude Desktop config example
-{
-  "mcpServers": {
-    "filesystem": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/path/to/project"]
-    },
-    "azure-devops": {
-      "command": "npx", 
-      "args": ["-y", "@azure-devops/mcp", "your-organization-name"]
-    }
-  }
-}</code></pre>
+                    <h5>🔑 API Key-Based Extensions (Pay-as-you-go)</h5>
+                    <div class="comparison-grid">
+                        <div class="comparison-card">
+                            <h5>Cline</h5>
+                            <ul>
+                                <li><strong>Price:</strong> Free credits to start, then token-based</li>
+                                <li>Autonomous coding agent for VS Code</li>
+                                <li>Terminal execution & file management</li>
+                                <li>Supports Claude, GPT-4, local models</li>
+                                <li>Can cost $10-100/hour based on usage</li>
+                            </ul>
+                        </div>
+                        <div class="comparison-card">
+                            <h5>Roo Code</h5>
+                            <ul>
+                                <li><strong>Price:</strong> Free tool, BYO-AI (bring your own API)</li>
+                                <li>Fork of Cline with extra features</li>
+                                <li>Boomerang task management</li>
+                                <li>Easy system prompt tweaking</li>
+                                <li>Token optimization features</li>
+                            </ul>
+                        </div>
                     </div>
                     
-                    <p><strong>👍 Pros:</strong> Full AI integration, MCP support, conversational development</p>
-                    <p><strong>👎 Cons:</strong> Learning curve, potential workflow changes</p>
+                    <p class="pro-tip"><strong>Note:</strong> There are many other IDE extensions and coding agents available beyond these examples. We've highlighted some popular options, but the landscape is constantly evolving with new tools emerging regularly.</p>
+                    
+                    <p><strong>👍 Pros:</strong> Works with your existing IDE, flexible pricing options, quick to start</p>
+                    <p><strong>👎 Cons:</strong> API costs can be unpredictable, features limited by IDE constraints</p>
                 </div>
                 
                 <div class="card">
-                    <h4>Option 3: Enterprise Integration (Azure DevOps Focus)</h4>
-                    <p>For enterprise development environments, consider these Azure DevOps integration approaches:</p>
+                    <h4>Option 2: AI-Native IDEs - Purpose-Built for AI</h4>
+                    <p>Complete development environments designed from the ground up with AI integration at their core.</p>
                     
-                    <ul class="feature-list">
-                        <li><strong>Azure OpenAI Service:</strong> Enterprise-grade AI with your organization's data</li>
-                        <li><strong>GitHub Copilot for Business:</strong> Integrated with Azure DevOps repositories</li>
-                        <li><strong>Custom MCP Servers:</strong> Build organization-specific AI tools</li>
-                        <li><strong>Azure DevOps Extensions:</strong> AI-powered work item management</li>
+                    <div class="comparison-grid">
+                        <div class="comparison-card">
+                            <h5>Cursor</h5>
+                            <ul>
+                                <li><strong>Price:</strong> $20/month Pro, $40/month Business</li>
+                                <li>Fork of VS Code with native AI</li>
+                                <li>Cursor Tab for intelligent completion</li>
+                                <li>Multi-file editing & agent mode</li>
+                                <li>Over 1 million active users</li>
+                                <li>Best for production-ready code</li>
+                            </ul>
+                        </div>
+                        <div class="comparison-card">
+                            <h5>Windsurf</h5>
+                            <ul>
+                                <li><strong>Price:</strong> $15/month Pro, $60/month Ultimate</li>
+                                <li>Backed by OpenAI (acquired 2025)</li>
+                                <li>Cascade: autonomous AI agent</li>
+                                <li>Better for beginners & large codebases</li>
+                                <li>Cleaner UI, better context retention</li>
+                                <li>500-3000 AI credits/month</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <p><strong>👍 Pros:</strong> Deep AI integration, purpose-built workflows, predictable costs</p>
+                    <p><strong>👎 Cons:</strong> Requires switching IDEs, subscription lock-in, learning curve</p>
+                </div>
+                
+                <div class="card">
+                    <h4>Option 3: Minimalist Coding Agents - Closest to the Metal</h4>
+                    <p>Terminal-based AI assistants offered directly by major LLM providers. These CLI tools provide the closest thing to direct language model access and can be integrated with your IDE's terminal for the best of both worlds.</p>
+                    
+                    <div class="comparison-grid grid-3-col">
+                        <div class="comparison-card">
+                            <h5>Claude Code</h5>
+                            <ul>
+                                <li><strong>Price:</strong> Included in Claude Pro/Max plans, or API key usage</li>
+                                <li>Closest access to Anthropic's latest models</li>
+                                <li>Terminal-native with deep codebase understanding</li>
+                                <li>Git workflow integration</li>
+                                <li>Seamless IDE terminal integration</li>
+                                <li>Heavy usage can reach $100/hour with API</li>
+                            </ul>
+                        </div>
+                        <div class="comparison-card">
+                            <h5>OpenAI Codex CLI</h5>
+                            <ul>
+                                <li><strong>Price:</strong> Included with ChatGPT Plus subscription</li>
+                                <li>Near-direct OpenAI model access</li>
+                                <li>Lightweight, runs locally in terminal</li>
+                                <li>Parallel task handling capabilities</li>
+                                <li>Excellent for automation workflows</li>
+                                <li>Integrates with VS Code terminal</li>
+                            </ul>
+                        </div>
+                        <div class="comparison-card">
+                            <h5>Gemini CLI (New!)</h5>
+                            <ul>
+                                <li><strong>Price:</strong> Free with Google account</li>
+                                <li>Access to Gemini 2.5 Pro (1M token context)</li>
+                                <li>60 requests/min, 1000/day free limit</li>
+                                <li>Open source (Apache 2.0)</li>
+                                <li>Includes Veo 3 video generation</li>
+                                <li>Deep Research agent access</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="key-highlight">
+                        <h5>💡 Why CLI Agents Matter</h5>
+                        <p>These tools represent the closest thing to pure AI coding assistance - minimal layers between you and the language models. When integrated with your IDE's terminal, they combine the power of command-line workflows with the convenience of your development environment.</p>
+                    </div>
+                    
+                    <p><strong>👍 Pros:</strong> Closest to raw LLM access, minimal middleman markup, scriptable workflows, works in any terminal including IDE terminals</p>
+                    <p><strong>👎 Cons:</strong> CLI-only interface, requires terminal comfort, costs can escalate with heavy usage</p>
+                </div>
+                
+                <div class="key-highlight">
+                    <h5>🎯 Quick Decision Guide</h5>
+                    <ul>
+                        <li><strong>Just starting?</strong> Try GitHub Copilot (predictable cost) or Cline (flexible pricing)</li>
+                        <li><strong>Heavy AI user?</strong> Consider Cursor or Windsurf for integrated experience</li>
+                        <li><strong>Love the terminal?</strong> Claude Code, OpenAI Codex, or free Gemini CLI</li>
+                        <li><strong>Budget conscious?</strong> Gemini CLI (free) or Roo Code with your own API keys</li>
+                        <li><strong>Enterprise needs?</strong> Cody or GitHub Copilot Business for security & compliance</li>
                     </ul>
-                    
-                    <div class="interactive-demo">
-                        <h5>Enterprise AI Workflow Example</h5>
-                        <p>A typical enterprise AI-assisted development cycle integrating with Azure DevOps:</p>
-                        <ol>
-                            <li>📋 Review work items with AI-generated summaries</li>
-                            <li>💻 Code with AI assistance and automated testing</li>
-                            <li>🔍 AI-powered code review and security scanning</li>
-                            <li>🚀 Automated deployment with AI monitoring</li>
-                            <li>📊 AI-generated project insights and reports</li>
-                        </ol>
-                    </div>
-                    
-                    <p><strong>👍 Pros:</strong> Domain-specific assistance, integration with existing systems</p>
-                    <p><strong>👎 Cons:</strong> Custom setup required, potential security considerations</p>
+                </div>
+                
+                <div class="pro-tip">
+                    <p><strong>✍️ Author's Setup:</strong> I personally use a combination of Cursor for its excellent AI-native IDE experience and Claude Code in the terminal for complex tasks requiring deep codebase understanding. This hybrid approach gives me the best of both worlds - Cursor's smooth integrated workflow for daily coding and Claude Code's powerful capabilities when I need to tackle challenging problems. I've done most work with Anthropic tools and models—they work best with tools in my experience. Claude Code is the best coding assistant experience I've had.</p>
                 </div>
             </div>
                 </section>
@@ -1100,6 +1192,382 @@ key changes"
                 <h4>💡 Remember: AI Amplifies, Not Replaces</h4>
                 <p>The most successful developers aren't those who fear AI or those who blindly trust it. They're the ones who understand its capabilities and limitations, and use it as a powerful tool to amplify their expertise.</p>
                 <p>Your years of experience, domain knowledge, and problem-solving skills become MORE valuable in the AI era, not less. AI handles the routine; you handle the remarkable.</p>
+            </div>
+                </section>
+                
+                <!-- AI Tool Configuration Section -->
+                <section class="content-section" id="ai-config">
+            <h2><span class="section-number">6</span>AI Tool Configuration</h2>
+            
+            <div class="card">
+                <h3>Mastering AI Context Management</h3>
+                <p>Effective AI-assisted development relies heavily on proper context management. This deep dive covers practical configuration approaches for VS Code, Cursor, and Claude Code to maximize your AI tools' effectiveness.</p>
+            </div>
+            
+            <div class="card">
+                <h3>VS Code Configuration with GitHub Copilot</h3>
+                <p>VS Code's AI capabilities center on its extension ecosystem. The most powerful pattern involves multiple configuration layers working together.</p>
+                
+                <h4>Essential Configuration Files</h4>
+                <ul class="feature-list">
+                    <li><strong>.vscode/settings.json</strong> - Workspace-specific AI settings</li>
+                    <li><strong>.github/copilot-instructions.md</strong> - Project coding standards for Copilot</li>
+                    <li><strong>.vscode/mcp.json</strong> - Model Context Protocol server configurations</li>
+                    <li><strong>User settings.json</strong> - Global AI preferences</li>
+                </ul>
+                
+                <h4>Project-Specific Copilot Instructions</h4>
+                <p>Create a <code>.github/copilot-instructions.md</code> file in your project root with your coding standards:</p>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                    <pre><code># Project Coding Standards for GitHub Copilot
+
+## TypeScript Guidelines
+- Always use TypeScript strict mode
+- Prefer functional components with hooks for React
+- Use explicit return types for all functions
+- Implement proper error boundaries
+
+## Code Style
+- Use 2-space indentation
+- Prefer const over let
+- Use template literals for string concatenation
+- Follow ESLint rules defined in .eslintrc.json
+
+## Testing Requirements
+- Write unit tests for all utility functions
+- Use React Testing Library for component tests
+- Maintain minimum 80% code coverage</code></pre>
+                </div>
+                
+                <h4>VS Code Settings Example</h4>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                    <pre><code>{
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": true
+  },
+  "github.copilot.chat.codeGeneration.useInstructionFiles": true,
+  "github.copilot.chat.codeGeneration.instructions": [
+    {
+      "text": "Always add TypeScript types for function parameters and return values."
+    },
+    {
+      "file": "coding-standards.md"
+    }
+  ]
+}</code></pre>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>Cursor IDE Advanced Configuration</h3>
+                <p>Cursor has evolved from simple <code>.cursorrules</code> files to a sophisticated <code>.mdc</code> (Markdown Components) format that enables granular, pattern-based rule application.</p>
+                
+                <div class="pro-tip">
+                    <p><strong>⚠️ Important:</strong> The legacy <code>.cursorrules</code> file is deprecated. Migrate to the new <code>.mdc</code> format for future compatibility.</p>
+                </div>
+                
+                <h4>Modern Cursor Project Structure</h4>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                    <pre><code>project/
+├── .cursor/
+│   └── rules/
+│       ├── base-coding-standards.mdc
+│       ├── backend/
+│       │   └── api-guidelines.mdc
+│       └── frontend/
+│           └── react-components.mdc</code></pre>
+                </div>
+                
+                <h4>Example .mdc Configuration</h4>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                    <pre><code>---
+description: React component development standards
+globs: 
+  - "src/components/**/*.tsx"
+  - "src/pages/**/*.tsx"
+alwaysApply: false
+---
+
+# React Component Guidelines
+
+Use functional components with hooks exclusively.
+Implement proper TypeScript interfaces for all props.
+Include loading and error states in every component.
+
+## Component Template
+```tsx
+interface ComponentProps {
+  // Define props here
+}
+
+export const Component: React.FC<ComponentProps> = ({ props }) => {
+  // Component logic
+  return <div>Component</div>;
+};
+```
+
+@component-template.tsx</code></pre>
+                </div>
+                
+                <p>The metadata fields enable intelligent rule application:</p>
+                <ul class="feature-list">
+                    <li><strong>globs:</strong> File patterns that trigger this rule</li>
+                    <li><strong>alwaysApply:</strong> Whether the rule applies universally</li>
+                    <li><strong>description:</strong> Human-readable rule purpose</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h3>Claude.md for Persistent Project Memory</h3>
+                <p>Claude.md files provide persistent project memory that Claude Code automatically loads when working in your project directory.</p>
+                
+                <h4>Claude.md Best Practices</h4>
+                <div class="comparison-grid">
+                    <div class="comparison-card">
+                        <h5>CLAUDE.md (Project Root)</h5>
+                        <ul>
+                            <li>Shared team conventions</li>
+                            <li>Common commands & workflows</li>
+                            <li>Project structure overview</li>
+                            <li>Architectural decisions</li>
+                            <li>Check into version control</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-card">
+                        <h5>CLAUDE.local.md</h5>
+                        <ul>
+                            <li>Personal preferences</li>
+                            <li>Local environment setup</li>
+                            <li>Individual shortcuts</li>
+                            <li>Private API endpoints</li>
+                            <li>Add to .gitignore</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h4>Comprehensive Claude.md Example</h4>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                    <pre><code># CLAUDE.md - Project Assistant Configuration
+
+## Bash Commands
+- `npm run dev` - Start development server on port 3000
+- `npm run build` - Build for production
+- `npm run test` - Run Jest test suite
+- `npm run lint` - Run ESLint with autofix
+- `npm run typecheck` - Run TypeScript compiler checks
+
+## Code Style Guidelines
+- Use ES modules (import/export) syntax, not CommonJS
+- Prefer async/await over Promise chains
+- Use object destructuring for cleaner code
+- Follow single responsibility principle
+- Keep functions under 50 lines
+
+## Project Structure
+```
+/src
+  /components - React components
+  /pages - Next.js pages
+  /api - API route handlers
+  /utils - Shared utilities
+  /hooks - Custom React hooks
+  /types - TypeScript type definitions
+/tests - Test files mirroring src structure
+```
+
+## Git Workflow
+- Create feature branches from main: `feature/description`
+- Use conventional commits: `feat:`, `fix:`, `docs:`, etc.
+- Run tests before committing
+- Squash commits before merging
+
+## Development Workflow
+1. Pick a task from Azure DevOps
+2. Create feature branch
+3. Implement with TDD approach
+4. Run linting and type checks
+5. Create pull request with detailed description
+6. Address code review feedback
+
+## Architecture Decisions
+- Using Next.js 14 with App Router
+- Tailwind CSS for styling
+- Prisma as ORM with PostgreSQL
+- tRPC for type-safe APIs
+- React Query for server state
+
+## Environment Variables
+Required in .env.local:
+- DATABASE_URL
+- NEXTAUTH_SECRET
+- AZURE_CLIENT_ID
+- AZURE_CLIENT_SECRET</code></pre>
+                </div>
+                
+                <div class="key-highlight">
+                    <h5>💡 Pro Tip</h5>
+                    <p>Claude Code reads up to 2000 lines from these files automatically. Use the <code>#</code> prefix during sessions to save new information: <code># save this to CLAUDE.md</code></p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>Configuration Patterns for Maximum Effectiveness</h3>
+                
+                <h4>Hierarchical Context Layers</h4>
+                <p>The most effective approach uses progressive context layers:</p>
+                <ol class="feature-list">
+                    <li><strong>Global Standards:</strong> Company-wide coding conventions</li>
+                    <li><strong>Project Specifics:</strong> Architecture and tech stack details</li>
+                    <li><strong>Feature Context:</strong> Current feature requirements</li>
+                    <li><strong>Session Context:</strong> Active task details</li>
+                </ol>
+                
+                <h4>Platform-Specific Best Practices</h4>
+                
+                <div class="comparison-grid grid-3-col">
+                    <div class="comparison-card">
+                        <h5>VS Code Projects</h5>
+                        <ul>
+                            <li>General standards in copilot-instructions.md</li>
+                            <li>Tool configs in settings.json</li>
+                            <li>Use MCP for external data</li>
+                            <li>Regular instruction updates</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-card">
+                        <h5>Cursor Projects</h5>
+                        <ul>
+                            <li>Organize rules by architecture</li>
+                            <li>Use glob patterns effectively</li>
+                            <li>Keep rules under 500 lines</li>
+                            <li>Reference examples with @</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-card">
+                        <h5>Claude.md Integration</h5>
+                        <ul>
+                            <li>Focus on commands & workflows</li>
+                            <li>Avoid duplicating IDE configs</li>
+                            <li>Include architecture decisions</li>
+                            <li>Update during development</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>Real-World Results</h3>
+                <div class="stat-highlight">
+                    <div class="stat-number">50-55%</div>
+                    <p>Productivity improvement reported by teams with well-configured AI context management</p>
+                </div>
+                
+                <h4>Success Factors</h4>
+                <ul class="feature-list">
+                    <li><strong>Living Documentation:</strong> Update configurations as projects evolve</li>
+                    <li><strong>Team Collaboration:</strong> Share and review AI configurations</li>
+                    <li><strong>Privacy First:</strong> Never include sensitive data in context files</li>
+                    <li><strong>Regular Reviews:</strong> Monthly configuration audits</li>
+                </ul>
+                
+                <div class="key-highlight">
+                    <h5>🚀 Implementation Timeline</h5>
+                    <ul>
+                        <li><strong>Weeks 1-2:</strong> Set up basic configurations and security</li>
+                        <li><strong>Weeks 3-4:</strong> Develop project-specific rules and templates</li>
+                        <li><strong>Weeks 5-8:</strong> Optimize based on usage patterns and team feedback</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>Going Deeper: Advanced Features & Documentation</h3>
+                <p>Each AI coding assistant offers powerful advanced features beyond basic code completion. Here's where to learn more:</p>
+                
+                <div class="comparison-grid grid-3-col">
+                    <div class="comparison-card">
+                        <h5>📚 Claude Code</h5>
+                        <p><a href="https://docs.anthropic.com/en/docs/claude-code/overview" target="_blank">Official Documentation</a></p>
+                        <ul>
+                            <li>Custom slash commands</li>
+                            <li>MCP server/client capabilities</li>
+                            <li>Advanced memory management</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-card">
+                        <h5>🎯 Cursor IDE</h5>
+                        <p><a href="https://docs.cursor.com" target="_blank">Official Documentation</a></p>
+                        <ul>
+                            <li>Agent mode for autonomous changes</li>
+                            <li>Composer for full codebases</li>
+                            <li>Advanced context control</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-card">
+                        <h5>🐙 GitHub Copilot</h5>
+                        <p><a href="https://docs.github.com/en/copilot" target="_blank">Official Documentation</a></p>
+                        <ul>
+                            <li>Repository custom instructions</li>
+                            <li>AI-powered code reviews</li>
+                            <li>Team knowledge sharing</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="comparison-grid grid-3-col">
+                    <div class="comparison-card">
+                        <h5>🌊 Windsurf</h5>
+                        <p><a href="https://docs.windsurf.com" target="_blank">Official Documentation</a></p>
+                        <ul>
+                            <li>Cascade AI with deep awareness</li>
+                            <li>Advanced autocomplete</li>
+                            <li>Multi-file context</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-card">
+                        <h5>🤖 OpenAI Codex</h5>
+                        <p><a href="https://github.com/openai/codex" target="_blank">GitHub Repository</a></p>
+                        <ul>
+                            <li>Multimodal inputs</li>
+                            <li>Three autonomy modes</li>
+                            <li>Sandboxed execution</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-card">
+                        <h5>🔷 Gemini CLI</h5>
+                        <p><a href="https://developers.google.com/gemini-code-assist/docs/gemini-cli" target="_blank">Official Documentation</a></p>
+                        <ul>
+                            <li>ReAct loop framework</li>
+                            <li>1M+ token context</li>
+                            <li>PDF/sketch to code</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="pro-tip">
+                    <p><strong>Remember:</strong> This guide focuses on getting you started. Each tool has extensive capabilities worth exploring once you've mastered the basics. Start simple, then gradually explore advanced features as you build confidence.</p>
+                </div>
+            </div>
+                </section>
+                
+                <!-- Development Workflow Section -->
+                <section class="content-section" id="dev-workflow">
+            <h2><span class="section-number">7</span>Development Workflow</h2>
+            
+            <div class="card">
+                <h3>My AI-Enhanced Development Workflow</h3>
+                <p>This section will detail my complete development workflow combining multiple AI tools for maximum productivity.</p>
+                
+                <div class="pro-tip">
+                    <p><strong>🚧 Coming Soon:</strong> Detailed workflow documentation including daily routines, tool combinations, and real-world examples.</p>
+                </div>
             </div>
                 </section>
                 
