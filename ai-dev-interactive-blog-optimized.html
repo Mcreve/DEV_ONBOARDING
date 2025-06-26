@@ -1476,14 +1476,166 @@ Required in .env.local:
                     <li><strong>Privacy First:</strong> Never include sensitive data in context files</li>
                     <li><strong>Regular Reviews:</strong> Monthly configuration audits</li>
                 </ul>
+            </div>
+            
+            <div class="card">
+                <h3>Author's Real Examples</h3>
+                <p>Here are actual configuration files from my projects, showing both VS Code and Claude Code approaches:</p>
+                
+                <h4>VS Code Example: ABAP Development with Custom Instructions</h4>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                    <pre><code># Project Instructions (project.instructions.md)
+# For VS Code GitHub Copilot
+
+## Project Instructions
+- For each object to generate Use Context7 - resolve-library-id, followed by get-libary-docs: abap-cheat-sheet get the right signature.
+- update implementation_tasklist.md progress.
+
+## Essential Clean ABAP Rules for AI Agents
+
+### Critical Guidelines
+
+1. **Use English only** - No mixed languages, abbreviations, or cryptic names
+2. **Use snake_case consistently** - Lowercase with underscores throughout
+3. **Make names intention-revealing** - Variables/methods should explain purpose
+4. **Use max 30 characters** - names should be concise, avoid long names
+5. **Classes = nouns, Methods = verbs** - zcl_order_processor, validate_customer_data
+6. **Keep methods short** - Maximum 3-10 statements per method
+7. **Use interfaces for dependencies** - Enable testability and loose coupling
+8. **Prefer RETURNING over EXPORTING** - Single return values for cleaner signatures
+9. **Use CX_STATIC_CHECK for recoverable errors** - Business logic exceptions
+10. **Use CX_NO_CHECK for unrecoverable errors** - System failures
+11. **Avoid deep nesting** - Maximum 3-4 levels, use guard clauses
+12. **Use meaningful constants** - Replace magic numbers/strings
+13. **Write self-documenting code** - Good names eliminate need for comments</code></pre>
+                </div>
+                
+                <h4>Claude Code Example 1: Simple Static Website (This Guide)</h4>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                    <pre><code># CLAUDE.md
+
+This file provides guidance to Claude Code when working with code in this repository.
+
+## Project Overview
+
+This is an interactive web application called "AI-Enhanced Development: Your Interactive Guide" - a static website that educates developers about AI tools and concepts. It requires no build process and can be served directly from any web server.
+
+## Development Commands
+
+Since this is a static site with no build system:
+- **Run locally**: Open `ai-dev-interactive-blog-optimized.html` in a browser or use a simple HTTP server like `python -m http.server 8000`
+- **No build/compilation needed** - Changes to HTML/CSS/JS are immediately reflected
+- **No tests** - This is a content-focused static site
+- **No linting configured** - Consider using browser developer tools for debugging
+
+## Architecture and Structure
+
+### File Organization
+/
+├── ai-dev-interactive-blog-optimized.html  # Main entry point
+├── styles.css                              # All styling
+├── script.js                               # All interactivity
+└── CLAUDE.md                               # This file
+
+### Key Architectural Decisions
+
+1. **No Framework Approach**: Pure vanilla JavaScript for maximum compatibility
+2. **Theme System**: CSS variables enable dark/light mode switching
+3. **Navigation Pattern**: Sticky sidebar with smooth scrolling
+4. **Performance**: Throttled scroll events and lazy animations</code></pre>
+                </div>
+                
+                <h4>Claude Code Example 2: Complex Technical Project (SAP MCP Server)</h4>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                    <pre><code># CLAUDE.md - SAP MCP Server v0.3.0 with ADT Integration
+
+## 🚨 V0.3.0 Implementation References
+
+**CRITICAL: For V0.3.0 ADT Integration, ALWAYS reference:**
+1. **Core Philosophy**: `v030-core-philosophy.md` - Read FIRST before any implementation
+2. **Task List**: `v030-implementation-tasks.md` - Follow task-by-task with dual references
+3. **Dual Codebase**: Keep both `abap-adt-api` and SAP MCP Server V2 open
+
+## Critical Rules
+
+### Development Standards
+- **ALWAYS** check existing implementation for patterns (see v030-core-philosophy.md)
+- **ALWAYS** reference `abap-adt-api` for ADT protocol knowledge
+- **NEVER** copy code directly - always transform to MCP patterns
+- **NEVER** add features beyond V0.3.0 scope (CDS views + dependencies only)
+- TypeScript strict mode with full type safety
+- Minimum 90% test coverage
+- Interface-first design for all services
+
+### Architecture (V0.3.0 Additions)
+src/
+├── cli/                 # CLI entry point
+├── core/                # Business logic
+│   ├── services/
+│   │   ├── interfaces/
+│   │   │   ├── ICDSViewService.ts      # NEW
+│   │   │   └── IDependencyAnalysisService.ts  # NEW
+│   │   └── implementations/
+├── integration/       # External systems
+│   ├── sap/          # Existing OData
+│   └── adt/          # NEW: ADT integration
+│       ├── ADTHttpClient.ts
+│       ├── parsers/   # XML parsing
+│       └── mappers/   # Response mapping
+
+### Environment Configuration (V0.3.0)
+# NEW: ADT Configuration
+ADT_BASE_PATH=/sap/bc/adt
+ADT_TIMEOUT_MS=20000
+CACHE_TTL_DEPENDENCIES=300
+
+### Key Commands
+# CDS View Commands
+sap-metadata cds view I_PRODUCT --include-associations
+sap-metadata cds dependencies I_PRODUCT --format=tree
+sap-metadata cds analyze I_PRODUCT --depth=5
+
+# MCP Inspector Usage
+npm run mcp:inspector
+# Access at http://127.0.0.1:6274
+
+### Development Workflow for V0.3.0
+1. **Before ANY implementation**:
+   - Read `v030-core-philosophy.md` completely
+   - Open task in `v030-implementation-tasks.md`
+   - Open referenced files from BOTH codebases
+
+2. **During implementation**:
+   - Extract protocol knowledge from abap-adt-api
+   - Transform to MCP patterns (never copy)
+   - Test using MCP testing patterns</code></pre>
+                </div>
                 
                 <div class="key-highlight">
-                    <h5>🚀 Implementation Timeline</h5>
-                    <ul>
-                        <li><strong>Weeks 1-2:</strong> Set up basic configurations and security</li>
-                        <li><strong>Weeks 3-4:</strong> Develop project-specific rules and templates</li>
-                        <li><strong>Weeks 5-8:</strong> Optimize based on usage patterns and team feedback</li>
-                    </ul>
+                    <h5>💡 Key Differences</h5>
+                    <div class="comparison-grid">
+                        <div class="comparison-card">
+                            <h6>VS Code Instructions</h6>
+                            <ul>
+                                <li>Focused on coding rules & standards</li>
+                                <li>Language-specific guidelines</li>
+                                <li>Works with GitHub Copilot</li>
+                                <li>File: .github/copilot-instructions.md</li>
+                            </ul>
+                        </div>
+                        <div class="comparison-card">
+                            <h6>Claude Code CLAUDE.md</h6>
+                            <ul>
+                                <li>Includes project structure & commands</li>
+                                <li>Architecture decisions & workflows</li>
+                                <li>Persistent project memory</li>
+                                <li>File: CLAUDE.md in project root</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
             
@@ -1517,36 +1669,6 @@ Required in .env.local:
                             <li>Repository custom instructions</li>
                             <li>AI-powered code reviews</li>
                             <li>Team knowledge sharing</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="comparison-grid grid-3-col">
-                    <div class="comparison-card">
-                        <h5>🌊 Windsurf</h5>
-                        <p><a href="https://docs.windsurf.com" target="_blank">Official Documentation</a></p>
-                        <ul>
-                            <li>Cascade AI with deep awareness</li>
-                            <li>Advanced autocomplete</li>
-                            <li>Multi-file context</li>
-                        </ul>
-                    </div>
-                    <div class="comparison-card">
-                        <h5>🤖 OpenAI Codex</h5>
-                        <p><a href="https://github.com/openai/codex" target="_blank">GitHub Repository</a></p>
-                        <ul>
-                            <li>Multimodal inputs</li>
-                            <li>Three autonomy modes</li>
-                            <li>Sandboxed execution</li>
-                        </ul>
-                    </div>
-                    <div class="comparison-card">
-                        <h5>🔷 Gemini CLI</h5>
-                        <p><a href="https://developers.google.com/gemini-code-assist/docs/gemini-cli" target="_blank">Official Documentation</a></p>
-                        <ul>
-                            <li>ReAct loop framework</li>
-                            <li>1M+ token context</li>
-                            <li>PDF/sketch to code</li>
                         </ul>
                     </div>
                 </div>
